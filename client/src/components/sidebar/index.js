@@ -1,4 +1,5 @@
 import Logo from "../logo";
+import Nav from "./nav";
 import Search from "./search";
 import User from "./user";
 
@@ -9,6 +10,7 @@ const Sidebar = () => {
         <Logo />
         <User />
         <Search />
+        <Nav />
       </div>
     </div>
   );
