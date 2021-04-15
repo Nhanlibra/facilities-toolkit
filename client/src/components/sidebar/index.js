@@ -1,4 +1,5 @@
 import Logo from "../logo";
+import Search from "./search";
 import User from "./user";
 
 const Sidebar = () => {
@@ -7,6 +8,7 @@ const Sidebar = () => {
       <div className="w-100 flex flex-col items-left py-6 space-y-6">
         <Logo />
         <User />
+        <Search />
       </div>
     </div>
   );
