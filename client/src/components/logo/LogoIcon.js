@@ -2,7 +2,7 @@ export default ({ className }) => {
   return (
     <div className={className}>
       <h2 className="text-dark">
-        <i className="bi-tools mr-2 text-primary"></i>FacilitiesPro
+        <i className="bi-tools text-primary"></i>
       </h2>
     </div>
   );

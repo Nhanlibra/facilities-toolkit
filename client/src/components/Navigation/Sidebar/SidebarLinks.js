@@ -5,12 +5,14 @@ export default () => {
     <Nav variant="pills" className="flex-column w-100" defaultActiveKey="/">
       <Nav.Item>
         <Nav.Link href="/">
-          <i className="bi-house-door-fill mr-2"></i>Home
+          <i className="bi-house-door-fill"></i>
+          <span className="ml-3 d-none d-md-inline">Home</span>
         </Nav.Link>
       </Nav.Item>
       <Nav.Item>
         <Nav.Link href="/call">
-          <i className="bi-list mr-2"></i>Call
+          <i className="bi-list"></i>
+          <span className=" ml-3 d-none d-md-inline">Call</span>
         </Nav.Link>
       </Nav.Item>
     </Nav>

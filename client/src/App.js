@@ -6,10 +6,10 @@ function App() {
   return (
     <Container fluid>
       <Row>
-        <Col sm={2}>
+        <Col xl={2}>
           <Sidebar />
         </Col>
-        <Col sm={10} className="py-3">
+        <Col xl={10} className="py-3">
           Content
         </Col>
       </Row>
