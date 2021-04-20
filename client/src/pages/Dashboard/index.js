@@ -1,5 +1,6 @@
-import { Col, Row } from "react-bootstrap";
+import { Card, Col, Nav, Row } from "react-bootstrap";
 import StatCard from "../../components/StatCard";
+import CallChart from "./CallChart";
 
 export default () => {
   return (
@@ -30,6 +31,11 @@ export default () => {
           <StatCard bg="info" color="white" value="4" text="Repairs Required" />
         </Col>
       </Row>
+
+      <Card className="mt-3 p-3">
+        <h5>Calls per lane (30 days)</h5>
+        <CallChart />
+      </Card>
     </div>
   );
 };
