@@ -7,10 +7,10 @@ function App() {
   return (
     <Container fluid>
       <Row>
-        <Col xs={2}>
+        <Col xs={2} md={3} lg={3} xl={2}>
           <Sidebar />
         </Col>
-        <Col xs={10} className="py-3">
+        <Col xs={10} md={9} lg={9} xl={10} className="py-3">
           <Dashboard />
         </Col>
       </Row>

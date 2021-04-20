@@ -16,12 +16,7 @@ export default () => {
           />
         </Col>
         <Col>
-          <StatCard
-            bg="danger"
-            color="white"
-            value="Lane 18"
-            text="Most Calls (30 days)"
-          />
+          <StatCard bg="danger" color="white" value="5" text="Calls (7 days)" />
         </Col>
         <Col>
           <StatCard

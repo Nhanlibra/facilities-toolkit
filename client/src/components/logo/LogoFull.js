@@ -1,9 +1,9 @@
 export default ({ className }) => {
   return (
     <div className={className}>
-      <h2 className="text-dark">
+      <h3 className="text-dark">
         <i className="bi-tools mr-2 text-primary"></i>FacilitiesPro
-      </h2>
+      </h3>
     </div>
   );
 };
