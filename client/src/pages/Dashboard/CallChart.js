@@ -75,7 +75,7 @@ export default ({ className }) => {
       <Bar
         data={data}
         width={100}
-        height={25}
+        height={33}
         options={{
           maintainAspectRatio: true,
         }}
