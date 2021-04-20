@@ -5,7 +5,7 @@ export default () => {
         width="48px"
         height="48px"
         className="rounded-circle mr-2"
-        src="https://randomuser.me/api/portraits/thumb/men/1.jpg"
+        src="https://avatars.githubusercontent.com/u/3156908?v=4"
       />
       <div className="flex-fill">
         <h6 className="m-0 p-0">Nathan Opresnik</h6>
