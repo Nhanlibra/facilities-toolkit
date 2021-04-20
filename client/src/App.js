@@ -1,16 +1,17 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Sidebar from "./components/Navigation/Sidebar";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
     <Container fluid>
       <Row>
-        <Col xl={2}>
+        <Col xs={2}>
           <Sidebar />
         </Col>
-        <Col xl={10} className="py-3">
-          Content
+        <Col xs={10} className="py-3">
+          <Dashboard />
         </Col>
       </Row>
     </Container>
