@@ -12,7 +12,7 @@ export default () => {
       <Nav.Item>
         <Nav.Link href="/call">
           <i className="bi-list"></i>
-          <span className=" ml-3 d-none d-md-inline">Call</span>
+          <span className=" ml-3 d-none d-md-inline">Call History</span>
         </Nav.Link>
       </Nav.Item>
     </Nav>
