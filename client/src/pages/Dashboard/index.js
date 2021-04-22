@@ -1,12 +1,12 @@
-import { Card, Col, Nav, Row } from "react-bootstrap";
+import { Card, Col, Row } from "react-bootstrap";
 import StatCard from "../../components/StatCard";
+import PageContainer from "../PageContainer";
 import CallChart from "./CallChart";
+import CommonCallsChart from "./CommonCallsChart";
 
 export default () => {
   return (
-    <div>
-      <h1>Dashboard</h1>
-      <hr />
+    <PageContainer title="Dashboard">
       <Row>
         <Col>
           <StatCard
@@ -32,10 +32,20 @@ export default () => {
         </Col>
       </Row>
 
-      <Card className="mt-3 p-3">
-        <h5>Calls per lane (30 days)</h5>
-        <CallChart />
-      </Card>
-    </div>
+      <Row>
+        <Col md={6}>
+          <Card className="mt-3 p-3 w-100">
+            <h5>Calls per lane (30 days)</h5>
+            <CallChart />
+          </Card>
+        </Col>
+        <Col md={6}>
+          <Card className="mt-3 p-3 w-100">
+            <h5>Common Calls (30 days)</h5>
+            <CommonCallsChart />
+          </Card>
+        </Col>
+      </Row>
+    </PageContainer>
   );
 };
