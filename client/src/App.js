@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import Sidebar from "./components/Navigation/Sidebar";
-import Dashboard from "./pages/Dashboard";
+import Dashboard from "./Pages/Dashboard";
 
 function App() {
   return (
