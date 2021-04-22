@@ -1,4 +1,4 @@
-import { Bar, defaults } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 
 const data = {
   labels: [
