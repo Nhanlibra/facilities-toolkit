@@ -4,6 +4,8 @@ import Sidebar from "./components/Navigation/Sidebar";
 import Dashboard from "./Pages/Dashboard";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import CallHistory from "./Pages/CallHistory";
+import RepairsRequired from "./Pages/RepairsRequired";
+import PendingWork from "./Pages/PendingWork";
 
 function App() {
   return (
@@ -24,6 +26,12 @@ function App() {
             <Switch>
               <Route path="/calls">
                 <CallHistory />
+              </Route>
+              <Route path="/repairs">
+                <RepairsRequired />
+              </Route>
+              <Route path="/pendingwork">
+                <PendingWork />
               </Route>
               <Route path="/">
                 <Dashboard />
