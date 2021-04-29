@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
+import codes from "./codes.json";
 
 export default ({ show, handleClose }) => {
+  const [callDetails, setCallDetails] = useState({
+    lane: "",
+    code: "",
+    notes: "",
+  });
+
+  useEffect(() => {
+    console.log(callDetails);
+  }, [callDetails]);
+
   return (
     <Modal
       show={show}
@@ -9,40 +20,52 @@ export default ({ show, handleClose }) => {
       backdrop="static"
       keyboard={false}
       centered
-      size="lg"
+      size="xl"
     >
       <Modal.Header closeButton>
         <Modal.Title>Log New Call</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Row noGutters>
+        <Row>
           <Col sm={3}>
-            <NumPad />
+            <NumPad state={callDetails} setState={setCallDetails} />
           </Col>
-          <Col sm={3}>
-            <CallForm />
+          <Col sm={4}>
+            <CallForm state={callDetails} setState={setCallDetails} />
           </Col>
-          <Col sm={6}>
-            <CallTypeList />
+          <Col sm={5}>
+            <CallTypeList state={callDetails} setState={setCallDetails} />
           </Col>
         </Row>
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={handleClose}>
-          Close
+          Cancel
         </Button>
         <Button variant="primary" onClick={handleClose}>
-          Save Changes
+          Log Call
         </Button>
       </Modal.Footer>
     </Modal>
   );
 };
 
-const NumPad = () => {
+const NumPad = ({ state, setState }) => {
   const NumBtn = ({ value }) => (
     <Col style={{ padding: "1px" }} xs={value === 0 ? 8 : 4}>
-      <Button variant="secondary" size="lg" block>
+      <Button
+        variant="secondary"
+        size="lg"
+        block
+        onClick={(e) => {
+          var number = e.target.textContent;
+          if (number === "C") {
+            setState({ ...state, lane: "" });
+          } else {
+            setState({ ...state, lane: state.lane + e.target.textContent });
+          }
+        }}
+      >
         {value}
       </Button>
     </Col>
@@ -67,75 +90,44 @@ const NumPad = () => {
   );
 };
 
-const CallForm = () => {
+const CallForm = ({ state, setState }) => {
   return (
     <Form>
       <Form.Group controlId="formLane">
         <Form.Label>Lane</Form.Label>
-        <Form.Control type="number" />
+        <Form.Control
+          type="number"
+          value={state.lane}
+          onChange={(e) => setState({ ...state, lane: e.target.value })}
+        />
       </Form.Group>
       <Form.Group controlId="formLane">
-        <Form.Label>Description</Form.Label>
-        <Form.Control as="textarea" />
+        <Form.Label>Additional Notes</Form.Label>
+        <Form.Control
+          as="textarea"
+          value={state.notes}
+          onChange={(e) => setState({ ...state, notes: e.target.value })}
+        />
       </Form.Group>
     </Form>
   );
 };
 
-const CallTypeList = () => {
-  const codes = [
-    "Pin OOR",
-    "Pin 1 Ld",
-    "Pin 2 Ld",
-    "Pin 3 Ld",
-    "Pin 4 Ld",
-    "Pin 5 Ld",
-    "Pin 6 Ld",
-    "Pin 7 Ld",
-    "Pin 8 Ld",
-    "Pin 9 Ld",
-    "Pin 10 Ld",
-    "A Found",
-    "B Found",
-    "C Found",
-    "D Found",
-    "SM Found",
-    "G Found",
-    "STFound",
-    "OORFound",
-    "A NtFnd",
-    "B NtFnd",
-    "C NtFnd",
-    "D NtFnd",
-    "SM NtFnd",
-    "G NtFnd",
-    "STNtFnd",
-    "Invld 0",
-    "Invld 1",
-    "Invld 2",
-    "Invld 3",
-    "Invld 4",
-    "Invld 5",
-    "ElevJam",
-    "Pin Cnt",
-    "TS1 Jam",
-    "TS2 Jam",
-    "AcelOff",
-    "IL",
-    "PwrFail",
-  ];
-
+const CallTypeList = ({ state, setState }) => {
   return (
-    <Container>
-      <Row noGutters>
-        {codes.map((code) => (
-          <Col xs={4} style={{ padding: "2px" }}>
-            <Button size="sm" block>
-              {code}
-            </Button>
-          </Col>
-        ))}
-      </Row>
-    </Container>
+    <Row noGutters>
+      {codes.map((code, index) => (
+        <Col xs={4} style={{ padding: "2px" }} key={index}>
+          <Button
+            variant="secondary"
+            size="sm"
+            block
+            onClick={(e) => setState({ ...state, code: e.target.textContent })}
+          >
+            {code}
+          </Button>
+        </Col>
+      ))}
+    </Row>
   );
 };
