@@ -1,7 +1,7 @@
 import { Col, Row } from "react-bootstrap";
 import NewCallBtn from "./NewCallBtn";
 
-export default ({ title, children }) => {
+export default ({ title, margin, children }) => {
   return (
     <div>
       <Row>
@@ -12,7 +12,7 @@ export default ({ title, children }) => {
           <NewCallBtn />
         </Col>
       </Row>
-      <hr className="mb-0" />
+      <hr className={margin ? "mb-3" : "mb-0"} />
       {children}
     </div>
   );
