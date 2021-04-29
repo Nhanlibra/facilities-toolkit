@@ -7,12 +7,14 @@ export default () => {
       <h3>Pending</h3>
       <Table striped bordered hover>
         <thead>
-          <th>Logged</th>
-          <th>Lane</th>
-          <th>Priority</th>
-          <th>Description</th>
-          <th>Status</th>
-          <th>Logged By</th>
+          <tr>
+            <td>Logged</td>
+            <td>Lane</td>
+            <td>Priority</td>
+            <td>Description</td>
+            <td>Status</td>
+            <td>Logged By</td>
+          </tr>
         </thead>
         <tbody>
           <tr>
@@ -45,14 +47,16 @@ export default () => {
       <h3>Completed</h3>
       <Table striped bordered hover>
         <thead>
-          <th>Logged</th>
-          <th>Lane</th>
-          <th>Priority</th>
-          <th>Description</th>
-          <th>Status</th>
-          <th>Logged By</th>
-          <th>Repaired By</th>
-          <th>Date Completed</th>
+          <tr>
+            <th>Logged</th>
+            <th>Lane</th>
+            <th>Priority</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Logged By</th>
+            <th>Repaired By</th>
+            <th>Date Completed</th>
+          </tr>
         </thead>
         <tbody>
           <tr>

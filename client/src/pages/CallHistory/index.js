@@ -7,11 +7,13 @@ export default () => {
     <PageContainer margin title="Call History">
       <Table striped bordered hover>
         <thead>
-          <th>Date & Time</th>
-          <th>Lane</th>
-          <th>Code</th>
-          <th>Description</th>
-          <th>Tech</th>
+          <tr>
+            <th>Date & Time</th>
+            <th>Lane</th>
+            <th>Code</th>
+            <th>Description</th>
+            <th>Tech</th>
+          </tr>
         </thead>
         <tbody>
           <tr>
