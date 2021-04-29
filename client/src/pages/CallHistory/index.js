@@ -15,14 +15,14 @@ export default () => {
         </thead>
         <tbody>
           <tr>
-            <td>Thur 29 Apr 2021 20:23</td>
+            <td>Thu 29 Apr 2021 20:23</td>
             <td>5</td>
             <td>TS2 Jam</td>
             <td>Double load 7 pin</td>
             <td>N.O</td>
           </tr>
           <tr>
-            <td>Thur 29 Apr 2021 20:48</td>
+            <td>Thu 29 Apr 2021 20:48</td>
             <td>15</td>
             <td>Pin7 Ld</td>
             <td>L.H Corner jam</td>
