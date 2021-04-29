@@ -1,6 +1,8 @@
-// $theme-colors: (
-//   "primary": red,
-// );
+$theme-colors: (
+  "priority-high": red,
+  "priority-medium": orange,
+  "priority-low": skyblue,
+);
 
 @import "~bootstrap/scss/bootstrap";
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css");
