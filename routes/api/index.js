@@ -2,6 +2,6 @@ const {Router} = require('express');
 
 const router = new Router();
 
-router.use('/api', require('./api'));
+router.use('/calls', require('./calls.route'));
 
 module.exports = router;
