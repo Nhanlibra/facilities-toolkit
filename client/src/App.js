@@ -1,11 +1,11 @@
-import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import Sidebar from "./components/Navigation/Sidebar";
-import Dashboard from "./Pages/Dashboard";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import CallHistory from "./Pages/CallHistory";
-import RepairsRequired from "./Pages/RepairsRequired";
-import PendingWork from "./Pages/PendingWork";
+import React from 'react';
+import {Col, Container, Row} from 'react-bootstrap';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Sidebar from './components/Navigation/Sidebar';
+import CallHistory from './Pages/CallHistory';
+import Dashboard from './Pages/Dashboard';
+import PendingWork from './Pages/PendingWork';
+import RepairsRequired from './Pages/RepairsRequired';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
             lg={3}
             xl={2}
             className="position-sticky vh-100"
-            style={{ top: 0 }}
+            style={{top: 0}}
           >
             <Sidebar />
           </Col>
