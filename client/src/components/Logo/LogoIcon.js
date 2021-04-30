@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LogoIcon ({className}) => {
+const LogoIcon = ({className}) => {
   return (
     <div className={className}>
       <h2 className="text-dark">
