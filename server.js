@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const routes = require("./routes");
+const mongoose = require("mongoose");
 const app = express();
 
 // Define middleware here
@@ -11,6 +12,19 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+// MongoDB connection
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/facilitiespro",
+  {
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true,
+  },
+  () => {
+    console.log("Connected to MongoDB");
+  }
+);
 
 // Define API routes here
 app.use("/api", routes);
