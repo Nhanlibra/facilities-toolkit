@@ -1,9 +1,10 @@
 const {Router} = require('express');
+const controller = require('../../controllers/call.controller');
 
 const router = new Router();
 
-router.get('/test', (req, res) => res.json({
-  test: 'Hello from /api/calls/test',
-}));
+router.post('/', controller.addCall);
+
+router.get('/', controller.getCalls);
 
 module.exports = router;
