@@ -1,7 +1,9 @@
-import { Col, Row } from "react-bootstrap";
-import NewCallBtn from "./NewCallBtn";
+import React from 'react';
+import {Col, Row} from 'react-bootstrap';
+import NewCallBtn from './NewCallBtn';
 
-export default ({ title, margin, children }) => {
+
+const PageContaner = ({title, margin, children}) => {
   return (
     <div>
       <Row>
@@ -12,8 +14,10 @@ export default ({ title, margin, children }) => {
           <NewCallBtn />
         </Col>
       </Row>
-      <hr className={margin ? "mb-3" : "mb-0"} />
+      <hr className={margin ? 'mb-3' : 'mb-0'} />
       {children}
     </div>
   );
 };
+
+export default PageContaner;

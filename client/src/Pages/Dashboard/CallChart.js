@@ -1,4 +1,6 @@
-import { Bar } from "react-chartjs-2";
+import React from 'react';
+import {Bar} from 'react-chartjs-2';
+
 
 const data = {
   labels: [
@@ -31,12 +33,12 @@ const data = {
   ],
   datasets: [
     {
-      label: "Stops",
-      backgroundColor: "rgb(255, 85, 85)",
-      borderColor: "rgba(255,99,132,1)",
+      label: 'Stops',
+      backgroundColor: 'rgb(255, 85, 85)',
+      borderColor: 'rgba(255,99,132,1)',
       borderWidth: 1,
-      hoverBackgroundColor: "rgb(255, 0, 0)",
-      hoverBorderColor: "rgba(255,99,132,1)",
+      hoverBackgroundColor: 'rgb(255, 0, 0)',
+      hoverBorderColor: 'rgba(255,99,132,1)',
       data: [
         0,
         1,
@@ -69,7 +71,7 @@ const data = {
   ],
 };
 
-export default ({ className }) => {
+const CallChart = ({className}) => {
   return (
     <div className={className}>
       <Bar
@@ -83,3 +85,5 @@ export default ({ className }) => {
     </div>
   );
 };
+
+export default CallChart;

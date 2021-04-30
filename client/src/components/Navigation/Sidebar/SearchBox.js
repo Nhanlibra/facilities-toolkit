@@ -1,6 +1,7 @@
-import { Form } from "react-bootstrap";
+import React from 'react';
+import {Form} from 'react-bootstrap';
 
-export default () => {
+const SearchBox = () => {
   return (
     <Form className="w-100">
       <Form.Group controlId="search.searchInput">
@@ -9,3 +10,4 @@ export default () => {
     </Form>
   );
 };
+export default SearchBox;

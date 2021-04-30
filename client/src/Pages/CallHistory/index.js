@@ -1,8 +1,8 @@
-import React from "react";
-import { Table } from "react-bootstrap";
-import PageContainer from "../PageContainer";
+import React from 'react';
+import {Table} from 'react-bootstrap';
+import PageContainer from '../PageContainer';
 
-export default () => {
+const CallHistory = () => {
   return (
     <PageContainer margin title="Call History">
       <Table striped bordered hover>
@@ -35,3 +35,5 @@ export default () => {
     </PageContainer>
   );
 };
+
+export default CallHistory;

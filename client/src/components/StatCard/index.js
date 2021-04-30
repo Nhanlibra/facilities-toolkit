@@ -1,6 +1,7 @@
-import { Card } from "react-bootstrap";
+import React from 'react';
+import {Card} from 'react-bootstrap';
 
-export default ({ bg, color, value, text, className }) => {
+const StatCard = ({bg, color, value, text, className}) => {
   return (
     <Card bg={bg} className={`p-2 mt-3 text-${color} ${className}`}>
       <h2 className="text-truncate">{value}</h2>
@@ -8,3 +9,5 @@ export default ({ bg, color, value, text, className }) => {
     </Card>
   );
 };
+
+export default StatCard;

@@ -1,4 +1,6 @@
-export default ({ className }) => {
+import React from 'react';
+
+const LogoIcon ({className}) => {
   return (
     <div className={className}>
       <h2 className="text-dark">
@@ -7,3 +9,5 @@ export default ({ className }) => {
     </div>
   );
 };
+
+export default LogoIcon;

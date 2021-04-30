@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
-import codes from "./codes.json";
+import React, {useEffect, useState} from 'react';
+import {Button, Col, Container, Form, Modal, Row} from 'react-bootstrap';
+import codes from './codes.json';
 
-export default ({ show, handleClose }) => {
+const NewCall = ({show, handleClose}) => {
   const [callDetails, setCallDetails] = useState({
-    lane: "",
-    code: "",
-    notes: "",
+    lane: '',
+    code: '',
+    notes: '',
   });
 
   useEffect(() => {
@@ -50,19 +50,19 @@ export default ({ show, handleClose }) => {
   );
 };
 
-const NumPad = ({ state, setState }) => {
-  const NumBtn = ({ value }) => (
-    <Col style={{ padding: "1px" }} xs={value === 0 ? 8 : 4}>
+const NumPad = ({state, setState}) => {
+  const NumBtn = ({value}) => (
+    <Col style={{padding: '1px'}} xs={value === 0 ? 8 : 4}>
       <Button
         variant="secondary"
         size="lg"
         block
         onClick={(e) => {
-          var number = e.target.textContent;
-          if (number === "C") {
-            setState({ ...state, lane: "" });
+          const number = e.target.textContent;
+          if (number === 'C') {
+            setState({...state, lane: ''});
           } else {
-            setState({ ...state, lane: state.lane + e.target.textContent });
+            setState({...state, lane: state.lane + e.target.textContent});
           }
         }}
       >
@@ -90,7 +90,7 @@ const NumPad = ({ state, setState }) => {
   );
 };
 
-const CallForm = ({ state, setState }) => {
+const CallForm = ({state, setState}) => {
   return (
     <Form>
       <Form.Group controlId="formLane">
@@ -98,7 +98,7 @@ const CallForm = ({ state, setState }) => {
         <Form.Control
           type="number"
           value={state.lane}
-          onChange={(e) => setState({ ...state, lane: e.target.value })}
+          onChange={(e) => setState({...state, lane: e.target.value})}
         />
       </Form.Group>
       <Form.Group controlId="formLane">
@@ -106,23 +106,23 @@ const CallForm = ({ state, setState }) => {
         <Form.Control
           as="textarea"
           value={state.notes}
-          onChange={(e) => setState({ ...state, notes: e.target.value })}
+          onChange={(e) => setState({...state, notes: e.target.value})}
         />
       </Form.Group>
     </Form>
   );
 };
 
-const CallTypeList = ({ state, setState }) => {
+const CallTypeList = ({state, setState}) => {
   return (
     <Row noGutters>
       {codes.map((code, index) => (
-        <Col xs={4} style={{ padding: "2px" }} key={index}>
+        <Col xs={4} style={{padding: '2px'}} key={index}>
           <Button
             variant="secondary"
             size="sm"
             block
-            onClick={(e) => setState({ ...state, code: e.target.textContent })}
+            onClick={(e) => setState({...state, code: e.target.textContent})}
           >
             {code}
           </Button>
@@ -131,3 +131,5 @@ const CallTypeList = ({ state, setState }) => {
     </Row>
   );
 };
+
+export default NewCall;

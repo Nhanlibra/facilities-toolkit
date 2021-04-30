@@ -1,7 +1,9 @@
-import { Badge, Table } from "react-bootstrap";
-import PageContainer from "../PageContainer";
+import React from 'react';
+import {Badge, Table} from 'react-bootstrap';
+import PageContainer from '../PageContainer';
 
-export default () => {
+
+const RepairsRequired = () => {
   return (
     <PageContainer margin title="Repairs Required">
       <h3>Pending</h3>
@@ -78,3 +80,5 @@ export default () => {
     </PageContainer>
   );
 };
+
+export default RepairsRequired;

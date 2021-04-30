@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { Button, Modal } from "react-bootstrap";
-import NewCall from "../NewCall";
+import React, {useState} from 'react';
+import {Button} from 'react-bootstrap';
+import NewCall from '../NewCall';
 
-export default () => {
+const NewCallBtn = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -17,3 +17,5 @@ export default () => {
     </>
   );
 };
+
+export default NewCallBtn;

@@ -1,4 +1,6 @@
-export default ({ className }) => {
+import React from 'react';
+
+const LogoFull = ({className}) => {
   return (
     <div className={className}>
       <h3 className="text-dark">
@@ -7,3 +9,5 @@ export default ({ className }) => {
     </div>
   );
 };
+
+export default LogoFull;

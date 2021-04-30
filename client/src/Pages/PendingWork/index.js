@@ -1,5 +1,8 @@
-import PageContainer from "../PageContainer";
+import React from 'react';
+import PageContainer from '../PageContainer';
 
-export default () => {
+const PendingWork = () => {
   return <PageContainer title="Pending Work Items"></PageContainer>;
 };
+
+export default PendingWork;

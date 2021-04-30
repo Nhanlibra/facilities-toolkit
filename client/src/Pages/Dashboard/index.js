@@ -1,10 +1,11 @@
-import { Card, Col, Row } from "react-bootstrap";
-import StatCard from "../../components/StatCard";
-import PageContainer from "../PageContainer";
-import CallChart from "./CallChart";
-import CommonCallsChart from "./CommonCallsChart";
+import React from 'react';
+import {Card, Col, Row} from 'react-bootstrap';
+import StatCard from '../../components/StatCard';
+import PageContainer from '../PageContainer';
+import CallChart from './CallChart';
+import CommonCallsChart from './CommonCallsChart';
 
-export default () => {
+const Dashboard = () => {
   return (
     <PageContainer title="Dashboard">
       <Row>
@@ -53,3 +54,5 @@ export default () => {
     </PageContainer>
   );
 };
+
+export default Dashboard;

@@ -1,7 +1,8 @@
-import { Badge, Nav } from "react-bootstrap";
-import { useLocation } from "react-router";
+import React from 'react';
+import {Nav} from 'react-bootstrap';
+import {useLocation} from 'react-router';
 
-export default () => {
+const SidebarLinks = () => {
   const location = useLocation();
 
   return (
@@ -37,3 +38,5 @@ export default () => {
     </Nav>
   );
 };
+
+export default SidebarLinks;
