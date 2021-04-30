@@ -1,4 +1,4 @@
-const mongoose = require("mongoos");
+const mongoose = require('mongoos');
 
 const Schema = mongoose.Schema;
 
@@ -9,18 +9,18 @@ const callSchema = new Schema({
   },
   lane: {
     type: Number,
-    required: "Call lane number is required",
+    required: 'Call lane number is required',
   },
   code: {
     type: String,
-    required: "Call code is required",
+    required: 'Call code is required',
   },
   description: String,
   tech: {
     type: String,
-    required: "Call tech is required",
+    required: 'Call tech is required',
   },
 });
 
-const Call = mongoose.model("Calls", callSchema);
+const Call = mongoose.model('Calls', callSchema);
 module.exports = Call;
