@@ -20,5 +20,6 @@ module.exports = {
   'rules': {
     'require-jsdoc': 'off',
     'react/prop-types': 'off',
+    'no-unused-vars': 'warn',
   },
 };

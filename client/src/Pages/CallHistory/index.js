@@ -1,37 +1,47 @@
-import React from 'react';
-import {Table} from 'react-bootstrap';
+import React, {useEffect, useState} from 'react';
+import {Spinner, Table} from 'react-bootstrap';
+import API from '../../util/API';
 import PageContainer from '../PageContainer';
 
 const CallHistory = () => {
+  const [calls, setCalls] = useState();
+
+  useEffect(() => {
+    API.calls.getCalls().then(({data}) => setCalls(data));
+  }, []);
+
   return (
     <PageContainer margin title="Call History">
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Date & Time</th>
-            <th>Lane</th>
-            <th>Code</th>
-            <th>Description</th>
-            <th>Tech</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Thu 29 Apr 2021 20:23</td>
-            <td>5</td>
-            <td>TS2 Jam</td>
-            <td>Double load 7 pin</td>
-            <td>N.O</td>
-          </tr>
-          <tr>
-            <td>Thu 29 Apr 2021 20:48</td>
-            <td>15</td>
-            <td>Pin7 Ld</td>
-            <td>L.H Corner jam</td>
-            <td>N.O</td>
-          </tr>
-        </tbody>
-      </Table>
+      {calls ?
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Date & Time</th>
+              <th>Lane</th>
+              <th>Code</th>
+              <th>Description</th>
+              <th>Tech</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              calls.map((call) => (
+                <tr key={call._id}>
+                  <td>{call.date}</td>
+                  <td>{call.lane}</td>
+                  <td>{call.code}</td>
+                  <td>{call.description}</td>
+                  <td>{call.tech}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </Table> :
+        <>
+          <Spinner animation="grow" variant="primary" />
+          <p>Loading...</p>
+        </>
+      }
     </PageContainer>
   );
 };
