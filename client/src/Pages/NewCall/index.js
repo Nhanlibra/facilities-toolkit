@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Col, Container, Form, Modal, Row} from 'react-bootstrap';
+import API from '../../util/API';
 import codes from './codes.json';
 
 const NewCall = ({show, handleClose}) => {
@@ -7,6 +8,7 @@ const NewCall = ({show, handleClose}) => {
     lane: '',
     code: '',
     notes: '',
+    tech: 'N.O',
   });
 
   useEffect(() => {
@@ -42,7 +44,9 @@ const NewCall = ({show, handleClose}) => {
         <Button variant="secondary" onClick={handleClose}>
           Cancel
         </Button>
-        <Button variant="primary" onClick={handleClose}>
+        <Button variant="primary" onClick={() => {
+          API.calls.addCall(callDetails).then(() => handleClose());
+        }}>
           Log Call
         </Button>
       </Modal.Footer>
