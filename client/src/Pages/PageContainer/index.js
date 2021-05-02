@@ -1,11 +1,12 @@
 import React from 'react';
 import {Col, Row} from 'react-bootstrap';
+import {ToastContextProvider} from '../../contexts/ToastContext';
 import NewCallBtn from './NewCallBtn';
 
 
 const PageContaner = ({title, margin, children}) => {
   return (
-    <div>
+    <ToastContextProvider>
       <Row>
         <Col>
           <h1>{title}</h1>
@@ -16,7 +17,7 @@ const PageContaner = ({title, margin, children}) => {
       </Row>
       <hr className={margin ? 'mb-3' : 'mb-0'} />
       {children}
-    </div>
+    </ToastContextProvider>
   );
 };
 

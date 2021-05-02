@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Col, Container, Form, Modal, Row} from 'react-bootstrap';
+import useToastContext from '../../hooks/useToastContext';
 import API from '../../util/API';
 import codes from './codes.json';
 
@@ -14,6 +15,8 @@ const NewCall = ({show, handleClose}) => {
   useEffect(() => {
     console.log(callDetails);
   }, [callDetails]);
+
+  const addToast = useToastContext();
 
   return (
     <Modal
@@ -45,7 +48,14 @@ const NewCall = ({show, handleClose}) => {
           Cancel
         </Button>
         <Button variant="primary" onClick={() => {
-          API.calls.addCall(callDetails).then(() => handleClose());
+          API.calls.addCall(callDetails).then(() => {
+            addToast(`New call lane 
+            ${callDetails.lane}: 
+            ${callDetails.code} 
+            ${callDetails.notes}`);
+          });
+          setCallDetails({});
+          handleClose();
         }}>
           Log Call
         </Button>
