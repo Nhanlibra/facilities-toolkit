@@ -8,7 +8,7 @@ const CallChart = ({className}) => {
   useEffect(() => {
     async function fetchData() {
       const {data} = await API.charts.getCallsPerLane();
-      console.log(data);
+
       setChartData({
         labels: [
           ...data.labels,
