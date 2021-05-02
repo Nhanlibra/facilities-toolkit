@@ -1,11 +1,26 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Card, Col, Row} from 'react-bootstrap';
 import StatCard from '../../components/StatCard';
+import API from '../../util/API';
 import PageContainer from '../PageContainer';
 import CallChart from './CallChart';
 import CommonCallsChart from './CommonCallsChart';
 
 const Dashboard = () => {
+  const [statData, setStatData] = useState({callsCount: 0});
+
+  useEffect(() => {
+    const getData = async () => {
+      const callCount = await API.calls.getCallsCount();
+
+      setStatData({
+        callsCount: callCount.data,
+      });
+    };
+
+    getData();
+  }, []);
+
   return (
     <PageContainer title="Dashboard">
       <Row>
@@ -18,7 +33,12 @@ const Dashboard = () => {
           />
         </Col>
         <Col>
-          <StatCard bg="danger" color="white" value="5" text="Calls (7 days)" />
+          <StatCard
+            bg="danger"
+            color="white"
+            value={statData.callsCount}
+            text="Calls (7 days)"
+          />
         </Col>
         <Col>
           <StatCard

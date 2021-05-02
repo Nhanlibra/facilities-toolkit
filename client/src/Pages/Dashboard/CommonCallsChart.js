@@ -27,7 +27,7 @@ const CommonCallsChart = ({className}) => {
     };
 
     fetchData();
-  });
+  }, []);
 
   return (
     <div className={className}>

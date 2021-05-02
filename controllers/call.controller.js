@@ -12,4 +12,9 @@ const getCalls = (req, res) => {
       .catch((e) => res.status(500).json(e));
 };
 
-module.exports = {addCall, getCalls};
+const getCallsCount = (req, res) => {
+  Call.count({})
+      .then((data) => res.json(data));
+};
+
+module.exports = {addCall, getCalls, getCallsCount};

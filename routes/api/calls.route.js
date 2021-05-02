@@ -7,4 +7,6 @@ router.post('/', controller.addCall);
 
 router.get('/', controller.getCalls);
 
+router.get('/count', controller.getCallsCount);
+
 module.exports = router;
