@@ -10,6 +10,19 @@ const CallHistory = () => {
     API.calls.getCalls().then(({data}) => setCalls(data));
   }, []);
 
+  const parseDate = (date) => {
+    const dt = new Date(date);
+
+    return dt.toLocaleString('en-AU', {
+      weekday: 'short',
+      day: 'numeric',
+      year: 'numeric',
+      month: 'short',
+      hour: 'numeric',
+      minute: 'numeric',
+    });
+  };
+
   return (
     <PageContainer margin title="Call History">
       {calls ?
@@ -27,7 +40,7 @@ const CallHistory = () => {
             {
               calls.map((call) => (
                 <tr key={call._id}>
-                  <td>{call.date}</td>
+                  <td>{parseDate(call.date)}</td>
                   <td>{call.lane}</td>
                   <td>{call.code}</td>
                   <td>{call.description}</td>
