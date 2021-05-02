@@ -8,6 +8,7 @@ const addCall = async ({body}, res) => {
 
 const getCalls = (req, res) => {
   Call.find({})
+      .sort({date: -1})
       .then((data) => res.json(data))
       .catch((e) => res.status(500).json(e));
 };
