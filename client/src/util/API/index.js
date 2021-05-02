@@ -1,3 +1,4 @@
 import calls from './calls';
+import charts from './charts';
 
-export default {calls};
+export default {calls, charts};
