@@ -28,7 +28,7 @@ const Dashboard = () => {
           <StatCard
             bg="success"
             color="white"
-            value={2500}
+            value="n"
             text="Frames Per Stop"
           />
         </Col>
@@ -44,12 +44,12 @@ const Dashboard = () => {
           <StatCard
             bg="warning"
             color="white"
-            value="4"
+            value="n"
             text="Pending Work Items"
           />
         </Col>
         <Col>
-          <StatCard bg="info" color="white" value="4" text="Repairs Required" />
+          <StatCard bg="info" color="white" value="n" text="Repairs Required" />
         </Col>
       </Row>
 
