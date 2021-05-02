@@ -1,19 +1,21 @@
-const getCallsPerLane = (req, res) => {
+const Call = require('../../models/call.model');
+
+const getCallsPerLane = async (req, res) => {
+  // TODO: Get this from db
+  const LANE_COUNT = 26;
+
+  const labels = Array.from({length: LANE_COUNT}, (_, i) => i + 1);
+  const data = Array(LANE_COUNT).fill(0);
+
+  const laneTotals = await Call.aggregate([
+    {'$group': {'_id': '$lane', 'count': {'$sum': 1}}},
+  ]);
+
+  laneTotals.forEach((lane) => data[(lane._id - 1)] = lane.count);
+
   res.json({
-    labels: [
-      1, 2, 3, 4, 5, 6,
-      7, 8, 9, 10, 11, 12, 13, 14,
-      15, 16, 17, 18, 19, 20, 21, 22,
-      23, 24, 25, 26,
-    ],
-    data: [
-      0, 1, 0, 5,
-      3, 1, 5, 0,
-      0, 2, 4, 2,
-      1, 2, 4, 3,
-      6, 8, 2, 1,
-      2, 3, 4, 3,
-      0, 1],
+    labels,
+    data,
   });
 };
 
