@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Pie} from 'react-chartjs-2';
 import API from '../../util/API';
+import 'chartjs-plugin-colorschemes';
 
 const CommonCallsChart = ({className}) => {
   const [chartData, setChartData] = useState();
@@ -15,14 +16,16 @@ const CommonCallsChart = ({className}) => {
           {
             label: 'My First Dataset',
             data: data.data,
-            backgroundColor: [
-              'rgb(255, 99, 132)',
-              'rgb(54, 162, 235)',
-              'rgb(255, 205, 86)',
-            ],
             hoverOffset: 4,
           },
         ],
+        options: {
+          plugins: {
+            colorschemes: {
+              scheme: 'tableau.Tableau20',
+            },
+          },
+        },
       });
     };
 

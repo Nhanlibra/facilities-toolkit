@@ -1,7 +1,24 @@
-const getCommonCalls = (req, res) => {
+const Call = require('../../models/call.model');
+
+const getCommonCalls = async (req, res) => {
+  const callTotals = await Call.aggregate([
+    {'$group': {'_id': '$code', 'count': {'$sum': 1}}},
+  ]);
+
+  const labels = [];
+  const data = [];
+
+  callTotals.forEach((call) => {
+    labels.push(call._id);
+    data.push(call.count);
+  });
+
+  console.log(labels);
+  console.log(data);
+
   res.json({
-    labels: ['TS1', 'TS2', '01', '75'],
-    data: [7, 10, 5, '1'],
+    labels,
+    data,
   });
 };
 
