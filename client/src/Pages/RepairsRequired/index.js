@@ -11,7 +11,7 @@ const RepairsRequired = () => {
   useEffect(() => {
     API.repairs.getRepairs()
         .then(({data}) => {
-          setRepairs(data.filter((r) => r.status !== 'completed'));
+          setRepairs(data.filter((r) => r.status !== 'completed').reverse());
           setCompletedRepairs(data.filter((r) => r.status === 'completed'));
         });
   }, []);
