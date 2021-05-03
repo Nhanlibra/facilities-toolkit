@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Spinner, Table} from 'react-bootstrap';
 import API from '../../util/API';
 import PageContainer from '../PageContainer';
+import './CallHistory.scss';
 
 const CallHistory = () => {
   const [calls, setCalls] = useState();
@@ -40,11 +41,11 @@ const CallHistory = () => {
             {
               calls.map((call) => (
                 <tr key={call._id}>
-                  <td>{parseDate(call.date)}</td>
-                  <td>{call.lane}</td>
-                  <td>{call.code}</td>
+                  <td className="min-width">{parseDate(call.date)}</td>
+                  <td className="min-width">{call.lane}</td>
+                  <td className="min-width">{call.code}</td>
                   <td>{call.description}</td>
-                  <td>{call.tech}</td>
+                  <td className="min-width">{call.tech}</td>
                 </tr>
               ))
             }
