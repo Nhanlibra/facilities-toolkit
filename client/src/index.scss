@@ -10,3 +10,8 @@ $theme-colors: (
 .container-fluid {
   padding-left: 0;
 }
+
+.min-width {
+  width: 1%;
+  white-space: nowrap;
+}

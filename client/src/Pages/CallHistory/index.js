@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {Spinner, Table} from 'react-bootstrap';
 import API from '../../util/API';
 import PageContainer from '../PageContainer';
-import './CallHistory.scss';
 
 const CallHistory = () => {
   const [calls, setCalls] = useState();
