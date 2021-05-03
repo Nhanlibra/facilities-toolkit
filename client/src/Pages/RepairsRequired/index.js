@@ -10,23 +10,23 @@ const RepairsRequired = () => {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <td>Logged</td>
-            <td>Lane</td>
-            <td>Priority</td>
-            <td>Description</td>
-            <td>Status</td>
-            <td>Logged By</td>
+            <th>Logged</th>
+            <th>Lane</th>
+            <th>Priority</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th className="min-width">Logged By</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Thu 29 Apr 2021 20:48</td>
-            <td>5</td>
-            <td>
+            <td className="min-width">Thu 29 Apr 2021 20:48</td>
+            <td className="min-width">5</td>
+            <td className="min-width">
               <Badge variant="priority-high">High</Badge>
             </td>
             <td>Repair/replace 7 pin holder to solve double loading.</td>
-            <td>
+            <td className="min-width">
               <Badge variant="warning">Pending</Badge>
             </td>
             <td>N.O</td>
@@ -52,28 +52,24 @@ const RepairsRequired = () => {
           <tr>
             <th>Logged</th>
             <th>Lane</th>
-            <th>Priority</th>
             <th>Description</th>
             <th>Status</th>
-            <th>Logged By</th>
-            <th>Repaired By</th>
+            <th className="min-width">Logged By</th>
+            <th className="min-width">Repaired By</th>
             <th>Date Completed</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Fri 2 Apr 2021 10:02</td>
-            <td>12</td>
-            <td>
-              <Badge variant="priority-medium">Medium</Badge>
-            </td>
+            <td className="min-width">Fri 2 Apr 2021 10:02</td>
+            <td className="min-width">12</td>
             <td>Repair/replace #1 spotting tong</td>
-            <td>
+            <td className="min-width">
               <Badge variant="success">Completed</Badge>
             </td>
             <td>J.H</td>
             <td>N.O</td>
-            <td>Mon 5 Apr 2021 10:35</td>
+            <td className="min-width">Mon 5 Apr 2021 10:35</td>
           </tr>
         </tbody>
       </Table>
