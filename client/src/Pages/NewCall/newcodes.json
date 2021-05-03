@@ -1,0 +1,252 @@
+[
+  {
+    "code": "PO",
+    "excode": "Pin OOR",
+    "full": "Out-of-range",
+    "children": []
+  },
+  {
+    "code": "00",
+    "excode": "Pin X Ld",
+    "full": "Pin Loading Time Out Pin X",
+    "children": [
+      {
+        "code": "01",
+        "excode": "Pin1 Ld",
+        "full": "Pin Loading Time Out Pin 1",
+        "children": []
+      },
+      {
+        "code": "02",
+        "excode": "Pin2 Ld",
+        "full": "Pin Loading Time Out Pin 2",
+        "children": []
+      },
+      {
+        "code": "03",
+        "excode": "Pin3 Ld",
+        "full": "Pin Loading Time Out Pin 3",
+        "children": []
+      },
+      {
+        "code": "04",
+        "excode": "Pin4 Ld",
+        "full": "Pin Loading Time Out Pin 4",
+        "children": []
+      },
+      {
+        "code": "05",
+        "excode": "Pin5 Ld",
+        "full": "Pin Loading Time Out Pin 5",
+        "children": []
+      },
+      {
+        "code": "06",
+        "excode": "Pin6 Ld",
+        "full": "Pin Loading Time Out Pin 6",
+        "children": []
+      },
+      {
+        "code": "07",
+        "excode": "Pin7 Ld",
+        "full": "Pin Loading Time Out Pin 7",
+        "children": []
+      },
+      {
+        "code": "08",
+        "excode": "Pin8 Ld",
+        "full": "Pin Loading Time Out Pin 8",
+        "children": []
+      },
+      {
+        "code": "09",
+        "excode": "Pin9 Ld",
+        "full": "Pin Loading Time Out Pin 9",
+        "children": []
+      },
+      {
+        "code": "10",
+        "excode": "Pin10 Ld",
+        "full": "Pin Loading Time Out Pin 10",
+        "children": []
+      }
+    ]
+  },
+  {
+    "code": "",
+    "excode": "X Found",
+    "full": "Switch X is Not Expected But Found",
+    "children": [
+      {
+        "code": "60",
+        "excode": "A Found",
+        "full": "Switch A is Not Expected But Found",
+        "children": []
+      },
+      {
+        "code": "61",
+        "excode": "B Found",
+        "full": "Switch B is Not Expected But Found",
+        "children": []
+      },
+      {
+        "code": "62",
+        "excode": "C Found",
+        "full": "Switch C is Not Expected But Found",
+        "children": []
+      },
+      {
+        "code": "63",
+        "excode": "D Found",
+        "full": "Switch D is Not Expected But Found",
+        "children": []
+      },
+      {
+        "code": "64",
+        "excode": "SM Found",
+        "full": "Switch SM is Not Expected But Found",
+        "children": []
+      },
+      {
+        "code": "65",
+        "excode": "G Found",
+        "full": "Switch G is Not Expected But Found",
+        "children": []
+      },
+      {
+        "code": "66",
+        "excode": "STFound",
+        "full": "Switch ST is Not Expected But Found",
+        "children": []
+      },
+      {
+        "code": "67",
+        "excode": "OORFound",
+        "full": "Switch OOR is Not Expected But Found",
+        "children": []
+      }
+    ]
+  },
+  {
+    "code": "",
+    "excode": "X NtFnd",
+    "full": "Switch X Expected But Not Found",
+    "children": [
+      {
+        "code": "70",
+        "excode": "A NtFnd",
+        "full": "Switch A Expected But Not Found",
+        "children": []
+      },
+      {
+        "code": "71",
+        "excode": "B NtFnd",
+        "full": "Switch B Expected But Not Found",
+        "children": []
+      },
+      {
+        "code": "72",
+        "excode": "C NtFnd",
+        "full": "Switch C Expected But Not Found",
+        "children": []
+      },
+      {
+        "code": "73",
+        "excode": "D NtFnd",
+        "full": "Switch D Expected But Not Found",
+        "children": []
+      },
+      {
+        "code": "74",
+        "excode": "SM NtFnd",
+        "full": "Switch SM Expected But Not Found",
+        "children": []
+      },
+      {
+        "code": "75",
+        "excode": "G NtFnd",
+        "full": "Switch G Expected But Not Found",
+        "children": []
+      },
+      {
+        "code": "76",
+        "excode": "STNtFnd",
+        "full": "Switch ST Expected But Not Found",
+        "children": []
+      }
+    ]
+  },
+  {
+    "code": "9X",
+    "excode": "Invld X",
+    "full": "Invalid Machine State X",
+    "children": [
+      {
+        "code": "90",
+        "excode": "Invld 0",
+        "full": "Invalid Machine State 0",
+        "children": []
+      },
+      {
+        "code": "91",
+        "excode": "Invld 1",
+        "full": "Invalid Machine State 1",
+        "children": []
+      },
+      {
+        "code": "92",
+        "excode": "Invld 2",
+        "full": "Invalid Machine State 2",
+        "children": []
+      },
+      {
+        "code": "93",
+        "excode": "Invld 3",
+        "full": "Invalid Machine State 3",
+        "children": []
+      },
+      {
+        "code": "94",
+        "excode": "Invld 4",
+        "full": "Invalid Machine State 4",
+        "children": []
+      },
+      {
+        "code": "95",
+        "excode": "Invld 5",
+        "full": "Invalid Machine State 5",
+        "children": []
+      }
+    ]
+  },
+  {
+    "code": "EJ",
+    "excode": "ElevJam",
+    "full": "Elevator Jam",
+    "children": []
+  },
+  {
+    "code": "EL",
+    "excode": "Pin Cnt",
+    "full": "Pin Count Switch Shorted for 5 Seconds",
+    "children": []
+  },
+  {
+    "code": "J1",
+    "excode": "TS1 Jam",
+    "full": "Jam Switch TS1",
+    "children": []
+  },
+  {
+    "code": "J2",
+    "excode": "TS2 Jam",
+    "full": "Jam Switch TS2 (Tower)",
+    "children": []
+  },
+  {
+    "code": "PF",
+    "excode": "PwrFail",
+    "full": "Power Failue has Occured",
+    "children": []
+  },
+]
