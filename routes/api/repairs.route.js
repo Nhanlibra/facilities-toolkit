@@ -5,6 +5,6 @@ const router = new Router();
 
 router.post('/', controller.addRepair);
 
-router.get('/', controller.getRepairs);
+router.get('/:status?', controller.getRepairs);
 
 module.exports = router;

@@ -7,9 +7,13 @@ const addRepair = ({body}, res) => {
 };
 
 const getRepairs = (req, res) => {
-  Repair.find({})
+  let find = {};
+
+  if (req.params.status) find = {'status': req.params.status};
+
+  Repair.find(find)
       .sort({logged: -1})
-      .then((date) => res.json(data))
+      .then((data) => res.json(data))
       .catch((e) => res.status(500).json(e));
 };
 
