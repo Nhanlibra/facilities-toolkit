@@ -12,10 +12,6 @@ const NewCall = ({show, handleClose}) => {
     tech: 'N.O',
   });
 
-  useEffect(() => {
-    console.log(callDetails);
-  }, [callDetails]);
-
   const addToast = useToastContext();
 
   return (
