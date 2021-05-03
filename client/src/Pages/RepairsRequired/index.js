@@ -1,12 +1,25 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Badge, Table} from 'react-bootstrap';
+import API from '../../util/API';
 import PageContainer from '../PageContainer';
-
+import {capitalise, parseDate} from '../../util/helpers';
 
 const RepairsRequired = () => {
+  const [repairs, setRepairs] = useState();
+  const [completedRepairs, setCompletedRepairs] = useState();
+
+  useEffect(() => {
+    API.repairs.getRepairs()
+        .then(({data}) => {
+          setRepairs(data.filter((r) => r.status !== 'completed'));
+          setCompletedRepairs(data.filter((r) => r.status === 'completed'));
+        });
+  }, []);
+
   return (
     <PageContainer margin title="Repairs Required">
       <h3>Pending</h3>
+      {repairs &&
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -19,60 +32,57 @@ const RepairsRequired = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td className="min-width">Thu 29 Apr 2021 20:48</td>
-            <td className="min-width">5</td>
-            <td className="min-width">
-              <Badge variant="priority-high">High</Badge>
-            </td>
-            <td>Repair/replace 7 pin holder to solve double loading.</td>
-            <td className="min-width">
-              <Badge variant="warning">Pending</Badge>
-            </td>
-            <td>N.O</td>
-          </tr>
-          <tr>
-            <td>Thu 29 Apr 2021 20:23</td>
-            <td>23</td>
-            <td>
-              <Badge variant="priority-low">Low</Badge>
-            </td>
-            <td>Cracked 7 pin side T-Band frame</td>
-            <td>
-              <Badge variant="warning">Pending</Badge>
-            </td>
-            <td>N.O</td>
-          </tr>
+          {repairs.map((repair) => (
+            <tr key={repair._id}>
+              <td className="min-width">{parseDate(repair.logged)}</td>
+              <td className="min-width">{repair.lane}</td>
+              <td className="min-width">
+                <Badge variant={`priority-${repair.priority}`}>
+                  {capitalise(repair.priority)}
+                </Badge>
+              </td>
+              <td>{repair.description}</td>
+              <td className="min-width">
+                <Badge variant="warning">{capitalise(repair.status)}</Badge>
+              </td>
+              <td>{repair.loggedBy}</td>
+            </tr>
+          ))}
         </tbody>
       </Table>
+      }
 
       <h3>Completed</h3>
+      {completedRepairs &&
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th>Logged</th>
-            <th>Lane</th>
+            <th className="min-width">Logged</th>
+            <th className="min-width">Lane</th>
             <th>Description</th>
-            <th>Status</th>
+            <th className="min-width">Status</th>
             <th className="min-width">Logged By</th>
             <th className="min-width">Repaired By</th>
-            <th>Date Completed</th>
+            <th className="min-width">Date Completed</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td className="min-width">Fri 2 Apr 2021 10:02</td>
-            <td className="min-width">12</td>
-            <td>Repair/replace #1 spotting tong</td>
-            <td className="min-width">
-              <Badge variant="success">Completed</Badge>
-            </td>
-            <td>J.H</td>
-            <td>N.O</td>
-            <td className="min-width">Mon 5 Apr 2021 10:35</td>
-          </tr>
+          {completedRepairs.map((repair) => (
+            <tr key={repair._id}>
+              <td className="min-width">{parseDate(repair.logged)}</td>
+              <td className="min-width">{repair.lane}</td>
+              <td>{repair.description}</td>
+              <td className="min-width">
+                <Badge variant="success">Completed</Badge>
+              </td>
+              <td className="min-width">{repair.loggedBy}</td>
+              <td className="min-width">{repair.repairedBy}</td>
+              <td className="min-width">{parseDate(repair.dateRepaired)}</td>
+            </tr>
+          ))}
         </tbody>
       </Table>
+      }
     </PageContainer>
   );
 };

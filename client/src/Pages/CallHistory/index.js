@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Spinner, Table} from 'react-bootstrap';
 import API from '../../util/API';
+import {parseDate} from '../../util/helpers';
 import PageContainer from '../PageContainer';
 
 const CallHistory = () => {
@@ -9,19 +10,6 @@ const CallHistory = () => {
   useEffect(() => {
     API.calls.getCalls().then(({data}) => setCalls(data));
   }, []);
-
-  const parseDate = (date) => {
-    const dt = new Date(date);
-
-    return dt.toLocaleString('en-AU', {
-      weekday: 'short',
-      day: 'numeric',
-      year: 'numeric',
-      month: 'short',
-      hour: 'numeric',
-      minute: 'numeric',
-    });
-  };
 
   return (
     <PageContainer margin title="Call History">
