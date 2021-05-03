@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Button, Col, Container, Form, Modal, Row} from 'react-bootstrap';
 import useToastContext from '../../hooks/useToastContext';
 import API from '../../util/API';
