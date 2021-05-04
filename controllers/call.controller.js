@@ -14,7 +14,7 @@ const getCalls = (req, res) => {
 };
 
 const getCallsCount = (req, res) => {
-  Call.count({})
+  Call.countDocuments({})
       .then((data) => res.json(data));
 };
 
