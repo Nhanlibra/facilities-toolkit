@@ -3,6 +3,7 @@ const path = require('path');
 const PORT = process.env.PORT || 3001;
 const routes = require('./routes');
 const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo');
 const session = require('express-session');
 const passport = require('./config/passport');
 const app = express();
@@ -11,7 +12,12 @@ const app = express();
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(session({
-  secret: 'facilitiespro', resave: true, saveUninitialized: true,
+  secret: 'facilitiespro',
+  resave: true,
+  saveUninitialized: true,
+  store: MongoStore.create({
+    mongoUrl: process.env.MONGODB_URI || 'mongodb://localhost/facilitiespro',
+  }),
 }));
 app.use(passport.initialize());
 app.use(passport.session());
