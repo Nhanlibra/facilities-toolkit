@@ -34,6 +34,7 @@ mongoose.connect(
       useNewUrlParser: true,
       useFindAndModify: false,
       useUnifiedTopology: true,
+      useCreateIndex: true,
     },
     () => console.log('Connected to MongoDB'),
 );
