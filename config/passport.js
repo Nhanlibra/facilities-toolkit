@@ -8,7 +8,7 @@ passport.use(new LocalStrategy({usernameField: 'email'},
       User.findOne({'email': email})
           .then((dbUser) => {
             if (!dbUser) {
-              return next(null, fase, {
+              return next(null, false, {
                 message: 'Incorrect email',
               });
             } else if (!dbUser.validatePassword(password)) {
