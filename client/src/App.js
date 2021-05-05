@@ -1,30 +1,21 @@
 import React from 'react';
-import {Col, Container, Row} from 'react-bootstrap';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Sidebar from './components/Navigation/Sidebar';
+import {ProvideAuth} from './hooks/useAuth';
 import CallHistory from './Pages/CallHistory';
 import Dashboard from './Pages/Dashboard';
+import Login from './Pages/Login';
 import PendingWork from './Pages/PendingWork';
 import RepairsRequired from './Pages/RepairsRequired';
-import {ProvideAuth} from './hooks/useAuth';
-import Login from './Pages/Login';
+import ProtectedRoute from './util/ProtectedRoute';
 
 function App() {
   const DashboardRoutes = () => {
     return (
       <Switch>
-        <Route exact path="/calls">
-          <CallHistory />
-        </Route>
-        <Route exact path="/repairs">
-          <RepairsRequired />
-        </Route>
-        <Route exact path="/pendingwork">
-          <PendingWork />
-        </Route>
-        <Route exact path="/">
-          <Dashboard />
-        </Route>
+        <ProtectedRoute exact path="/calls" component={CallHistory} />
+        <ProtectedRoute exact path="/repairs" component={RepairsRequired} />
+        <ProtectedRoute exact path="/pendingwork" component={PendingWork} />
+        <ProtectedRoute exact path="/" component={Dashboard} />
       </Switch>
     );
   };
