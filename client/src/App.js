@@ -7,41 +7,33 @@ import Dashboard from './Pages/Dashboard';
 import PendingWork from './Pages/PendingWork';
 import RepairsRequired from './Pages/RepairsRequired';
 import {ProvideAuth} from './hooks/useAuth';
+import Login from './Pages/Login';
 
 function App() {
+  const DashboardRoutes = () => {
+    return (
+      <Switch>
+        <Route exact path="/calls">
+          <CallHistory />
+        </Route>
+        <Route exact path="/repairs">
+          <RepairsRequired />
+        </Route>
+        <Route exact path="/pendingwork">
+          <PendingWork />
+        </Route>
+        <Route exact path="/">
+          <Dashboard />
+        </Route>
+      </Switch>
+    );
+  };
+
   return (
     <ProvideAuth>
       <Router>
-        <Container fluid>
-          <Row>
-            <Col
-              xs={2}
-              md={3}
-              lg={3}
-              xl={2}
-              className="position-sticky vh-100"
-              style={{top: 0}}
-            >
-              <Sidebar />
-            </Col>
-            <Col xs={10} md={9} lg={9} xl={10} className="py-3">
-              <Switch>
-                <Route path="/calls">
-                  <CallHistory />
-                </Route>
-                <Route path="/repairs">
-                  <RepairsRequired />
-                </Route>
-                <Route path="/pendingwork">
-                  <PendingWork />
-                </Route>
-                <Route path="/">
-                  <Dashboard />
-                </Route>
-              </Switch>
-            </Col>
-          </Row>
-        </Container>
+        <Route component={DashboardRoutes} />
+        <Route exact path="/login" component={Login} />
       </Router>
     </ProvideAuth>
   );
