@@ -1,4 +1,4 @@
-import React, {useContext, createContext, useState, useEffect} from 'react';
+import React, {createContext, useContext, useEffect, useState} from 'react';
 import API from '../util/API';
 
 const authContext = createContext();
@@ -19,28 +19,35 @@ export function useAuth() {
 
 function useProvideAuth() {
   const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const isLoggedIn = user !== null;
 
   useEffect(() => {
     API.auth.getUser()
-        .then(({data}) => setUser(data))
+        .then(({data}) => {
+          if (Object.keys(data).length > 0) {
+            setUser(data);
+          }
+          setIsLoading(false);
+        })
         .catch(() => setUser(null));
   }, []);
 
   const login = (body) => {
-    return new Promise((resolve, reject) => {
-      API.auth.loginUser(body)
-          .then(({data}) => resolve(data))
-          .catch(({response}) => reject(response));
+    API.auth.loginUser(body).then(({data}) => {
+      setUser(data);
     });
   };
 
-  const logout = () => API.auth.logoutUser().then(() => setUser(null));
+  const logout = () => API.auth.logoutUser().then(() => {
+    setUser(null);
+  });
 
   return {
     isLoggedIn,
     user,
     login,
     logout,
+    isLoading,
   };
 }
