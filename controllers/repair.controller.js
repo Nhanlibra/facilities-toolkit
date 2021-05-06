@@ -8,7 +8,9 @@ const addRepair = ({body}, res) => {
 
 const getRepairs = (req, res) => {
   let find = {};
+  const status = req.params.status;
 
+  if (status === 'active') find = {'status': {'$ne': 'completed'}};
   if (req.params.status) find = {'status': req.params.status};
 
   Repair.find(find)
