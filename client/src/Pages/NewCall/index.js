@@ -8,7 +8,7 @@ const NewCall = ({show, handleClose}) => {
   const [callDetails, setCallDetails] = useState({
     lane: '',
     code: '',
-    notes: '',
+    description: '',
     tech: 'N.O',
   });
 
@@ -48,7 +48,7 @@ const NewCall = ({show, handleClose}) => {
             addToast(`New call lane 
             ${callDetails.lane}: 
             ${callDetails.code} 
-            ${callDetails.notes}`);
+            ${callDetails.description}`);
           });
           setCallDetails({});
           handleClose();
@@ -115,8 +115,8 @@ const CallForm = ({state, setState}) => {
         <Form.Label>Additional Notes</Form.Label>
         <Form.Control
           as="textarea"
-          value={state.notes}
-          onChange={(e) => setState({...state, notes: e.target.value})}
+          value={state.description}
+          onChange={(e) => setState({...state, description: e.target.value})}
         />
       </Form.Group>
     </Form>
