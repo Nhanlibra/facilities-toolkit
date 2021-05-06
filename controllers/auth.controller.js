@@ -8,11 +8,7 @@ const login = ({user}, res) => {
 };
 
 const signUp = ({body}, res) => {
-  User.create({
-    username: body.username,
-    email: body.email,
-    password: body.password,
-  })
+  User.create({...body})
       .then((data) => res.json(data))
       .catch((e) => res.json(e));
 };
@@ -25,11 +21,9 @@ const getUserData = ({user}, res) => {
   if (!user) {
     res.json({});
   } else {
-    res.json({
-      id: user._id,
-      email: user.email,
-      username: user.username,
-    });
+    // eslint-disable-next-line no-unused-vars
+    const {password, ...userData} = user;
+    res.json(userData);
   }
 };
 
