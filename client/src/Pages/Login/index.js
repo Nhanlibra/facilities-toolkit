@@ -8,7 +8,7 @@ const Login = () => {
 
   console.log(user);
   if (user) {
-    return <Redirect to="/calls" />;
+    return <Redirect to="/" />;
   }
 
   return (
