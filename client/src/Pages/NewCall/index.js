@@ -1,15 +1,18 @@
 import React, {useState} from 'react';
 import {Button, Col, Container, Form, Modal, Row} from 'react-bootstrap';
+import {useAuth} from '../../hooks/useAuth';
 import useToastContext from '../../hooks/useToastContext';
 import API from '../../util/API';
 import codes from './codes.json';
 
 const NewCall = ({show, handleClose}) => {
+  const {user} = useAuth();
+
   const [callDetails, setCallDetails] = useState({
     lane: '',
     code: '',
     description: '',
-    tech: 'N.O',
+    tech: `${user.firstName.charAt(0)}. ${user.lastName.charAt(0)}`,
   });
 
   const addToast = useToastContext();
