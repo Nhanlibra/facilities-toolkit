@@ -8,8 +8,15 @@ const addRepair = ({body}, res) => {
 
 const getRepairs = (req, res) => {
   let find = {};
+  const status = req.params.status;
 
-  if (req.params.status) find = {'status': req.params.status};
+  if (status) {
+    if (status === 'active') {
+      find = {'status': {'$ne': 'completed'}};
+    } else {
+      find = {'status': status};
+    }
+  }
 
   Repair.find(find)
       .sort({logged: -1})
