@@ -15,3 +15,9 @@ $theme-colors: (
   width: 1%;
   white-space: nowrap;
 }
+
+.repair-table {
+  td {
+    cursor: pointer;
+  }
+}

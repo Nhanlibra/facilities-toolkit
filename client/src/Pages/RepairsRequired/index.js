@@ -4,10 +4,22 @@ import API from '../../util/API';
 import PageContainer from '../PageContainer';
 import {capitalise, parseDate} from '../../util/helpers';
 import NewRepairBtn from './NewRepairBtn';
+import EditRepair from '../EditRepair';
 
 const RepairsRequired = () => {
   const [repairs, setRepairs] = useState();
   const [completedRepairs, setCompletedRepairs] = useState();
+
+  const [selectedRepair, setSelectedRepair] = useState();
+  const [editOpen, setEditOpen] = useState('false');
+
+  const handleEditClose = () => setEditOpen(false);
+  const handleEditOpen = () => setEditOpen(true);
+
+  const handleRepairClick = (repair) => {
+    setSelectedRepair(repair);
+    handleEditOpen();
+  };
 
   useEffect(() => {
     API.repairs.getRepairs()
@@ -22,7 +34,7 @@ const RepairsRequired = () => {
       <h3 className="float-left">Pending</h3>
       <NewRepairBtn />
       {repairs &&
-      <Table striped bordered hover>
+      <Table className="repair-table" striped bordered hover>
         <thead>
           <tr>
             <th>Logged</th>
@@ -35,7 +47,7 @@ const RepairsRequired = () => {
         </thead>
         <tbody>
           {repairs.map((repair) => (
-            <tr key={repair._id}>
+            <tr key={repair._id} onClick={() => handleRepairClick(repair)}>
               <td className="min-width">{parseDate(repair.logged)}</td>
               <td className="min-width">{repair.lane}</td>
               <td className="min-width">
@@ -56,7 +68,7 @@ const RepairsRequired = () => {
 
       <h3>Completed</h3>
       {completedRepairs &&
-      <Table striped bordered hover>
+      <Table className="repair-table" striped bordered hover>
         <thead>
           <tr>
             <th className="min-width">Logged</th>
@@ -70,7 +82,7 @@ const RepairsRequired = () => {
         </thead>
         <tbody>
           {completedRepairs.map((repair) => (
-            <tr key={repair._id}>
+            <tr key={repair._id} onClick={() => handleRepairClick(repair)}>
               <td className="min-width">{parseDate(repair.logged)}</td>
               <td className="min-width">{repair.lane}</td>
               <td>{repair.description}</td>
@@ -85,6 +97,11 @@ const RepairsRequired = () => {
         </tbody>
       </Table>
       }
+      <EditRepair
+        show={editOpen}
+        handleClose={handleEditClose}
+        data={selectedRepair}
+      />
     </PageContainer>
   );
 };
