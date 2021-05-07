@@ -2,4 +2,6 @@ import axios from 'axios';
 
 const getRepairs = (status = '') => axios.get(`/api/repairs/${status}`);
 
-export default {getRepairs};
+const addRepair = (repair) => axios.post('/api/repair', repair);
+
+export default {getRepairs, addRepair};
