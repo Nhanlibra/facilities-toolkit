@@ -3,6 +3,7 @@ import {Badge, Table} from 'react-bootstrap';
 import API from '../../util/API';
 import PageContainer from '../PageContainer';
 import {capitalise, parseDate} from '../../util/helpers';
+import NewRepairBtn from './NewRepairBtn';
 
 const RepairsRequired = () => {
   const [repairs, setRepairs] = useState();
@@ -18,7 +19,8 @@ const RepairsRequired = () => {
 
   return (
     <PageContainer margin title="Repairs Required">
-      <h3>Pending</h3>
+      <h3 className="float-left">Pending</h3>
+      <NewRepairBtn />
       {repairs &&
       <Table striped bordered hover>
         <thead>
