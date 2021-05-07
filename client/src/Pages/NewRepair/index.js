@@ -2,17 +2,24 @@ import React, {useState} from 'react';
 import {Button, Modal} from 'react-bootstrap';
 import RepairForm from '../../components/RepairForm';
 import {useAuth} from '../../hooks/useAuth';
+import API from '../../util/API';
 
 const NewRepair = ({show, handleClose}) => {
   const {getInitials} = useAuth();
 
   const [repairData, setRepairData] = useState({
-    lane: '',
-    priority: '',
+    lane: 0,
+    priority: 'low',
     description: '',
-    status: '',
+    status: 'pending',
     loggedBy: getInitials(),
   });
+
+  const handleSubmit = () => {
+    API.repairs.addRepair(repairData)
+        .then(() => handleClose())
+        .catch(() => alert('An error occured while creating this repair'));
+  };
 
   return (
     <Modal
@@ -34,7 +41,7 @@ const NewRepair = ({show, handleClose}) => {
         </Button>
         <Button
           variant="primary"
-          onClick={handleClose}
+          onClick={handleSubmit}
         >
           Log repairs
         </Button>

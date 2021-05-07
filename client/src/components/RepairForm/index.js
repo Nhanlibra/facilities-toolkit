@@ -48,7 +48,6 @@ const RepairForm = ({state, setState}) => {
         >
           <option value="pending">Pending</option>
           <option value="on hold">On Hold</option>
-          <option value="completed">Completed</option>
         </Form.Control>
       </Form.Group>
     </Form>
