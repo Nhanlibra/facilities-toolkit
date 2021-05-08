@@ -43,15 +43,11 @@ function useProvideAuth() {
     setUser(null);
   });
 
-  const getInitials = () =>
-    `${user.firstName.charAt(0)}.${user.lastName.charAt(0)}`;
-
   return {
     isLoggedIn,
     user,
     login,
     logout,
     isLoading,
-    getInitials,
   };
 }

@@ -23,6 +23,8 @@ const getUserData = ({user}, res) => {
   } else {
     // eslint-disable-next-line no-unused-vars
     const {password, ...userData} = user;
+    userData['initials'] =
+      `${userData.firstName.charAt(0)}.${userData.lastName.charAt(0)}`;
     res.json(userData);
   }
 };
