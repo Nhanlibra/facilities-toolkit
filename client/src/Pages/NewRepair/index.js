@@ -1,18 +1,18 @@
 import React, {useState} from 'react';
 import {Button, Modal} from 'react-bootstrap';
 import RepairForm from '../../components/RepairForm';
-// import {useAuth} from '../../hooks/useAuth';
+import {useAuth} from '../../hooks/useAuth';
 import API from '../../util/API';
 
 const NewRepair = ({show, handleClose}) => {
-  // const {getInitials} = useAuth();
+  const {user} = useAuth();
 
   const [repairData, setRepairData] = useState({
     lane: 0,
     priority: 'low',
     description: '',
     status: 'pending',
-    loggedBy: '',
+    tech: user.initials,
   });
 
   const handleSubmit = () => {

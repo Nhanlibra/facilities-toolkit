@@ -6,13 +6,13 @@ import API from '../../util/API';
 import codes from './codes.json';
 
 const NewCall = ({show, handleClose}) => {
-  const {getInitials} = useAuth();
+  const {user} = useAuth();
 
   const [callDetails, setCallDetails] = useState({
     lane: '',
     code: '',
     description: '',
-    tech: ``,
+    tech: user.initials,
   });
 
   const addToast = useToastContext();
