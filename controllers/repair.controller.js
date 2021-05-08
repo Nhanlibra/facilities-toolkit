@@ -25,4 +25,11 @@ const getRepairs = (req, res) => {
 };
 
 
-module.exports = {addRepair, getRepairs};
+const getRepairsCount = (req, res) => {
+  Repair.find({'status': {'$ne': 'completed'}})
+      .countDocuments()
+      .then((data) => res.json(data))
+      .catch((e) => res.status(500).json(e));
+};
+
+module.exports = {addRepair, getRepairs, getRepairsCount};
