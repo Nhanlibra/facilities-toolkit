@@ -40,6 +40,13 @@ const CallChart = ({className}) => {
           height={100}
           options={{
             maintainAspectRatio: true,
+            scales: {
+              yAxes: [{
+                ticks: {
+                  stepSize: 1,
+                },
+              }],
+            },
           }}
         />
       )}
