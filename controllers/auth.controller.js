@@ -15,6 +15,7 @@ const signUp = ({body}, res) => {
 
 const logout = (req, res) => {
   req.logout();
+  res.end();
 };
 
 const getUserData = ({user}, res) => {
