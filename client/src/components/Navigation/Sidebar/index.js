@@ -14,7 +14,7 @@ const Sidebar = () => {
         <LogoFull className="pb-3 d-none d-md-block" />
         <LogoIcon className="pb-3 d-md-none" />
 
-        <SearchBox />
+        {/* <SearchBox /> */}
 
         <SidebarLinks />
       </div>
