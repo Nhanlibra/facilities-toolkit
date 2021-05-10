@@ -1,5 +1,13 @@
 import React, {useState} from 'react';
-import {Button, Col, Container, Form, Modal, Row} from 'react-bootstrap';
+import {
+  Button,
+  Col,
+  Container,
+  Form,
+  Modal,
+  Row,
+  ToggleButton,
+} from 'react-bootstrap';
 import {useAuth} from '../../hooks/useAuth';
 import useToastContext from '../../hooks/useToastContext';
 import API from '../../util/API';
@@ -127,18 +135,27 @@ const CallForm = ({state, setState}) => {
 };
 
 const CallTypeList = ({state, setState}) => {
+  const [radioValue, setRadioValue] = useState();
+
   return (
     <Row noGutters>
       {codes.map((code, index) => (
-        <Col xs={4} style={{padding: '2px'}} key={index}>
-          <Button
+        <Col xs={4} style={{padding: '2px'}} key={index}
+          className="btn-group-toggle">
+          <ToggleButton
+            type="radio"
             variant="secondary"
             size="sm"
+            value={code}
+            checked={radioValue === code}
             block
-            onClick={(e) => setState({...state, code: e.target.textContent})}
+            onClick={(e) => {
+              setRadioValue(code);
+              setState({...state, code: e.target.textContent});
+            }}
           >
             {code}
-          </Button>
+          </ToggleButton>
         </Col>
       ))}
     </Row>
