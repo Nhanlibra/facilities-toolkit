@@ -151,7 +151,7 @@ const CallTypeList = ({state, setState}) => {
             block
             onClick={(e) => {
               setRadioValue(code);
-              setState({...state, code: e.target.textContent});
+              setState({...state, code: code});
             }}
           >
             {code}
