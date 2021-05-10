@@ -27,3 +27,9 @@ $theme-colors: (
 .logout-btn {
   cursor: pointer;
 }
+
+.login-cover {
+  background-image: url("./images/login-cover.png");
+  background-size: cover;
+  background-position: center;
+}
