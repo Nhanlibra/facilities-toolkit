@@ -1,7 +1,6 @@
 import React from 'react';
 import LogoFull from '../../Logo/LogoFull';
 import LogoIcon from '../../Logo/LogoIcon';
-import SearchBox from './SearchBox';
 import SidebarLinks from './SidebarLinks';
 import UserControl from './UserControl';
 
