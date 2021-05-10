@@ -35,14 +35,14 @@ const SidebarLinks = () => {
           <span className=" ml-3 d-none d-md-inline">Repairs Required</span>
         </Nav.Link>
       </Nav.Item>
-      <Nav.Item>
+      {/* <Nav.Item>
         <Nav.Link
           href='/pendingwork'
           onClick={(e) => handleNav(e, '/pendingwork')}>
           <i className="bi-list"></i>
           <span className=" ml-3 d-none d-md-inline">Pending Work Items</span>
         </Nav.Link>
-      </Nav.Item>
+      </Nav.Item> */}
     </Nav>
   );
 };

@@ -10,7 +10,7 @@ const RepairsStatCard = () => {
   }, []);
 
   return <StatCard
-    bg="info"
+    bg="warning"
     color="white"
     text="Repairs Required"
     value={repairsCount}

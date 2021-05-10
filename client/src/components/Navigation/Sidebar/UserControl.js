@@ -11,7 +11,7 @@ const UserControl = () => {
       />
       <div className="flex-fill d-none d-md-block">
         <h6 className="m-0 p-0">Nathan Opresnik</h6>
-        <small className="m-0 p-0">Head Mechanic</small>
+        <small className="m-0 p-0">Monash Tenpin Bowl</small>
       </div>
       <i className="bi-three-dots-vertical d-none d-md-block"></i>
     </div>

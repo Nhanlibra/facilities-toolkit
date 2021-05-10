@@ -22,14 +22,14 @@ const Dashboard = () => {
         <Col>
           <CallsStatCard />
         </Col>
-        <Col>
+        {/* <Col>
           <StatCard
             bg="warning"
             color="white"
             value="n"
             text="Pending Work Items"
           />
-        </Col>
+        </Col> */}
         <Col>
           <RepairsStatCard />
         </Col>
