@@ -9,5 +9,7 @@ router.get('/count', controller.getRepairsCount);
 
 router.get('/:status?', controller.getRepairs);
 
+router.put('/:id', controller.editRepair);
+
 
 module.exports = router;

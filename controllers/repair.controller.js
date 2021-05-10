@@ -32,4 +32,10 @@ const getRepairsCount = (req, res) => {
       .catch((e) => res.status(500).json(e));
 };
 
-module.exports = {addRepair, getRepairs, getRepairsCount};
+const editRepair = (req, res) => {
+  Repair.findByIdAndUpdate(req.params.id, req.body)
+      .then((data) => res.json(data))
+      .catch((e) => res.status(500).json(e));
+};
+
+module.exports = {addRepair, getRepairs, getRepairsCount, editRepair};
