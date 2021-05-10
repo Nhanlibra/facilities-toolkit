@@ -15,7 +15,7 @@ const Dashboard = () => {
           <StatCard
             bg="success"
             color="white"
-            value="n"
+            value={2747}
             text="Frames Per Stop"
           />
         </Col>

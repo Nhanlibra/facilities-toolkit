@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Button, Modal} from 'react-bootstrap';
 import RepairForm from '../../components/RepairForm';
 import {useAuth} from '../../hooks/useAuth';
+import API from '../../util/API';
 
 const EditRepair = ({show, handleClose, data}) => {
   const {user} = useAuth();
@@ -17,7 +18,6 @@ const EditRepair = ({show, handleClose, data}) => {
   useEffect(() => {
     if (repairData && changesMade) {
       if (repairData.status === 'completed') {
-        // console.log(repairData);
         handleSubmit();
       }
     }
@@ -25,7 +25,9 @@ const EditRepair = ({show, handleClose, data}) => {
 
   const handleSubmit = () => {
     // console.log(JSON.stringify(repairData, null, 2));
-    handleClose();
+    API.repairs.editRepair(repairData)
+        .then(() => handleClose())
+        .catch((e) => console.log(e));
   };
 
   const handleComplete = () => {

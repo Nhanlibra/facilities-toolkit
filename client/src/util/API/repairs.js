@@ -6,4 +6,6 @@ const getRepairsCount = () => axios.get(`/api/repairs/count`);
 
 const addRepair = (repair) => axios.post('/api/repairs', repair);
 
-export default {getRepairs, addRepair, getRepairsCount};
+const editRepair = (repair) => axios.put(`/api/repairs/${repair._id}`, repair);
+
+export default {getRepairs, addRepair, getRepairsCount, editRepair};
