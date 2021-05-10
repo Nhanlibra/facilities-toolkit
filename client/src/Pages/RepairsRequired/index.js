@@ -13,7 +13,10 @@ const RepairsRequired = () => {
   const [selectedRepair, setSelectedRepair] = useState();
   const [editOpen, setEditOpen] = useState('false');
 
-  const handleEditClose = () => setEditOpen(false);
+  const handleEditClose = () => {
+    setEditOpen(false);
+    refreshRepairs();
+  };
   const handleEditOpen = () => setEditOpen(true);
 
   const handleRepairClick = (repair) => {
@@ -21,12 +24,16 @@ const RepairsRequired = () => {
     handleEditOpen();
   };
 
-  useEffect(() => {
+  const refreshRepairs = () => {
     API.repairs.getRepairs()
         .then(({data}) => {
           setRepairs(data.filter((r) => r.status !== 'completed').reverse());
           setCompletedRepairs(data.filter((r) => r.status === 'completed'));
         });
+  };
+
+  useEffect(() => {
+    refreshRepairs();
   }, []);
 
   return (
