@@ -64,7 +64,9 @@ const RepairsRequired = () => {
               </td>
               <td>{repair.description}</td>
               <td className="min-width">
-                <Badge variant="warning">{capitalise(repair.status)}</Badge>
+                <Badge variant={`status-${repair.status.replace(' ', '')}`}>
+                  {capitalise(repair.status)}
+                </Badge>
               </td>
               <td>{repair.loggedBy}</td>
             </tr>

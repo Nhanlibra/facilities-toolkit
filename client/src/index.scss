@@ -2,6 +2,8 @@ $theme-colors: (
   "priority-high": red,
   "priority-medium": orange,
   "priority-low": skyblue,
+  "status-pending": red,
+  "status-onhold": rgb(112, 112, 112),
 );
 
 @import "~bootstrap/scss/bootstrap";
