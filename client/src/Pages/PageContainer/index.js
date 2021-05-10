@@ -1,6 +1,5 @@
 import React from 'react';
 import {Col, Container, Row} from 'react-bootstrap';
-import LogoutBtn from '../../components/LogoutBtn';
 import Sidebar from '../../components/Navigation/Sidebar';
 import {ToastContextProvider} from '../../contexts/ToastContext';
 import NewCallBtn from './NewCallBtn';
@@ -28,7 +27,6 @@ const PageContaner = ({title, margin, children}) => {
               </Col>
               <Col className="d-flex align-items-center justify-content-end">
                 <NewCallBtn />
-                <LogoutBtn />
               </Col>
             </Row>
             <hr className={margin ? 'mb-3' : 'mb-0'} />

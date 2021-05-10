@@ -1,6 +1,8 @@
 import React from 'react';
+import {useAuth} from '../../../hooks/useAuth';
 
 const UserControl = () => {
+  const {logout} = useAuth();
   return (
     <div className="d-flex w-100 p-3 border-top align-items-center">
       <img
@@ -13,7 +15,10 @@ const UserControl = () => {
         <h6 className="m-0 p-0">Nathan Opresnik</h6>
         <small className="m-0 p-0">Monash Tenpin Bowl</small>
       </div>
-      <i className="bi-three-dots-vertical d-none d-md-block"></i>
+      <i
+        className="bi-door-open d-none d-md-block logout-btn"
+        onClick={() => logout()}
+      ></i>
     </div>
   );
 };
