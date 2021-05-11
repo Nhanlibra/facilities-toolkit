@@ -12,7 +12,7 @@ const NewRepair = ({show, handleClose}) => {
     priority: 'low',
     description: '',
     status: 'pending',
-    tech: user.initials,
+    loggedBy: user.initials,
   });
 
   const handleSubmit = () => {

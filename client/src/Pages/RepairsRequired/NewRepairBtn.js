@@ -2,10 +2,13 @@ import React, {useState} from 'react';
 import {Button} from 'react-bootstrap';
 import NewRepair from '../NewRepair';
 
-const NewRepairBtn = () => {
+const NewRepairBtn = ({refresh}) => {
   const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => {
+    setShow(false);
+    refresh();
+  };
   const handleOpen = () => setShow(true);
 
   return (

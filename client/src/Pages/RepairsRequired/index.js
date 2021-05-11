@@ -39,7 +39,7 @@ const RepairsRequired = () => {
   return (
     <PageContainer margin title="Repairs Required">
       <h3 className="float-left">Pending</h3>
-      <NewRepairBtn />
+      <NewRepairBtn refresh={refreshRepairs} />
       {repairs &&
       <Table className="repair-table" striped bordered hover>
         <thead>
